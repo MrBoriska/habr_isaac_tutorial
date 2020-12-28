@@ -52,6 +52,21 @@
         "pong" : {
           "wait_ping": true
         }
+      },
+      "websight": {
+        "WebsightServer": {
+          "port": 3000,
+          "ui_config": {
+            "windows": {
+              "imu_rpy": {
+                "renderer": "plot",
+                "channels": [
+                  { "name": "myapp/pong/pong/latency" }
+                ]
+              }
+            }
+          }
+        }
       }
     }
   }
