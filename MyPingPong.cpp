@@ -35,6 +35,8 @@ void MyPingPong::tick() {
     const std::string pong_msg = pong_proto.getMessage();
     // расчет времени между отправкой и приемом сообщения
     int64_t latency_ns = this->getTickTimestamp()-rx_pong().pubtime();
+
+    show("latency", latency_ns);
     
     LOG_INFO("%s by %d ns", pong_msg.c_str(), latency_ns);
   }
