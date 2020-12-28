@@ -15,6 +15,9 @@ public:
     // Коммуникация с другими компонентами
     ISAAC_PROTO_TX(PingProto, ping);
     ISAAC_PROTO_RX(PingProto, pong);
+
+    //ISAAC_POSE2(ping, pong);
+    ISAAC_POSE3(ping, pong)
     
     // Параметры запуска компонента
     // (тип , название, значение по умолчанию)

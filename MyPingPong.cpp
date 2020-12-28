@@ -35,8 +35,20 @@ void MyPingPong::tick() {
     const std::string pong_msg = pong_proto.getMessage();
     // расчет времени между отправкой и приемом сообщения
     int64_t latency_ns = this->getTickTimestamp()-rx_pong().pubtime();
-
+    
+    // Sight
     show("latency", latency_ns);
+
+    // PoseTree
+    //double x=1,y=2,angle=3.14;
+    //const Pose2d ping_T_pong{SO2d::FromAngle(angle), Vector2d{x, y}};
+    //set_ping_T_pong(ping_T_pong, getTickTime());
+
+    double x=1,y=2,z=3,angle=3.14;
+    Vector3d z_axis{0.0, 0.0, 1.0};
+    const Pose3d ping_T_pong{SO3d::FromAxisAngle(z_axis, angle),
+                             Vector3d{x, y, z}};
+    set_ping_T_pong(ping_T_pong, getTickTime());
     
     LOG_INFO("%s by %d ns", pong_msg.c_str(), latency_ns);
   }
